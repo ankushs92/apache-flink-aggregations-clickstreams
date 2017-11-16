@@ -38,7 +38,7 @@ public class StreamingJob {
 		//Operations will be performed on this window, where the size of each window is 1 minute
 		//Multifurcate the clickstream by a Key, which is nothing but a tuple of fields. Flink provides Tuple's implementation upto 25 fields
 		//For example, here we have choosen to split a stream on the basis of (campaignId, pubId, timestamp)
-		//Also, for our timestamp key, we round up the actual timestamp to the minute. For example, if our click timestamp is 2017-10-10 12:12:12, we round it up to 2017-10-10 12:12:00
+		//Also, for our timestamp's value in the key, we round up the actual timestamp to the minute. For example, if our click timestamp is 2017-10-10 12:12:12, we round it up to 2017-10-10 12:12:00
 		val clicksWindowedStream = clicksStream
 					.keyBy(new AggregatedClicksByMinuteKeySelector())
 					.timeWindow(Time.minutes(1));
