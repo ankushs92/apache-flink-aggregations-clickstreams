@@ -42,13 +42,13 @@ public class StreamingJob {
 		//Operations will be performed on this window, where the size of each window is 1 minute
 		//Split the clickstream by Key over a Time window of 1 minute
 		val clicksWindowedStream = clicksStream
-										.keyBy(new AggregatedClicksByMinuteKeySelector())
-										.timeWindow(Time.minutes(1));
+					.keyBy(new AggregatedClicksByMinuteKeySelector())
+					.timeWindow(Time.minutes(1));
 
 		// The aggregations bit
 		val aggregatedClicksByMinuteStream = clicksWindowedStream
-										.apply(new ClickWindowAggregationFunction())
-										.name("Aggregate clicks by minute");
+					.apply(new ClickWindowAggregationFunction())
+					.name("Aggregate clicks by minute");
 
 		//Serialize the result AggregatedClicksByMinute POJO to JSON
 		val jsonSerializer = new JsonSerializer();
