@@ -25,7 +25,7 @@ public class ClickWindowAggregationFunction implements WindowFunction<Click, Agg
     {
         final Integer campaignId = tuple.getField(0);
         final Integer pubId = tuple.getField(1);
-        final LocalDateTime timestamp = tuple.getField(2);
+        final LocalDateTime minute = tuple.getField(2);
 
         //The main counting bit
         val count = Iterables.size(clickStream);
@@ -33,7 +33,7 @@ public class ClickWindowAggregationFunction implements WindowFunction<Click, Agg
                                     .builder()
                                         .campaignId(campaignId)
                                         .pubId(pubId)
-                                        .timestamp(timestamp)
+                                        .minute(minute)
                                         .count(count)
                                     .build();
         collector.collect(aggregatedResult);

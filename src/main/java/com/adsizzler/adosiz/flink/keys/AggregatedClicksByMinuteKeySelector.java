@@ -17,7 +17,16 @@ public class AggregatedClicksByMinuteKeySelector implements KeySelector<Click, T
     {
         val campaignId = click.getCampaignId();
         val pubId = click.getPubId();
-        val timestamp = click.getTimestamp();
-        return new Tuple3<>(campaignId, pubId, timestamp);
+        val clickTimestamp = click.getTimestamp();
+        //Round up to the minute by setting seconds = 0
+        val minute = LocalDateTime.of(
+                clickTimestamp.getYear(),
+                clickTimestamp.getMonth(),
+                clickTimestamp.getDayOfMonth(),
+                clickTimestamp.getHour(),
+                clickTimestamp.getMinute(),
+               0
+        );
+        return new Tuple3<>(campaignId, pubId, minute);
     }
 }

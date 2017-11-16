@@ -16,7 +16,7 @@ public class AggregatedClicksByMinute {
 
     private Integer campaignId;
     private Integer pubId;
-    private LocalDateTime timestamp;
+    private LocalDateTime minute;
     private Integer count;
 
 }
