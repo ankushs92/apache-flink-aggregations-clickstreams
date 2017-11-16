@@ -1,7 +1,7 @@
-package com.adsizzler.adosiz.flink.serializers;
+package in.ankushs.sample.flink.serializers;
 
-import com.adsizzler.adosiz.flink.aggregations.AggregatedClicksByMinute;
-import com.adsizzler.adosiz.flink.utils.Json;
+import in.ankushs.sample.flink.aggregations.AggregatedClicksByMinute;
+import in.ankushs.sample.flink.utils.Json;
 import lombok.extern.slf4j.Slf4j;
 import lombok.val;
 import org.apache.flink.streaming.util.serialization.SerializationSchema;

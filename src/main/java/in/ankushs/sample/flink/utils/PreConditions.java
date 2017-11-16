@@ -1,4 +1,4 @@
-package com.adsizzler.adosiz.flink.utils;
+package in.ankushs.sample.flink.utils;
 
 import java.util.Objects;
 

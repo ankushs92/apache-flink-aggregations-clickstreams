@@ -1,4 +1,4 @@
-package com.adsizzler.adosiz.flink.jackson;
+package in.ankushs.sample.flink.jackson;
 
 import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.core.JsonProcessingException;

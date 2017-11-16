@@ -1,4 +1,4 @@
-package com.adsizzler.adosiz.flink.constants;
+package in.ankushs.sample.flink.constants;
 
 /**
  * Created by ankushsharma on 16/11/17.

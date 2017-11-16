@@ -1,6 +1,6 @@
-package com.adsizzler.adosiz.flink.keys;
+package in.ankushs.sample.flink.keys;
 
-import com.adsizzler.adosiz.flink.domain.Click;
+import in.ankushs.sample.flink.domain.Click;
 import lombok.val;
 import org.apache.flink.api.java.functions.KeySelector;
 import org.apache.flink.api.java.tuple.Tuple3;

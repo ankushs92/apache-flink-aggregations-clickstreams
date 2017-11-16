@@ -1,4 +1,4 @@
-package com.adsizzler.adosiz.flink.aggregations;
+package in.ankushs.sample.flink.aggregations;
 
 import lombok.Builder;
 import lombok.Getter;

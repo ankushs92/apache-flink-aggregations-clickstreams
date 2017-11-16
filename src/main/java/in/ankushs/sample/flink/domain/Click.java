@@ -1,10 +1,10 @@
-package com.adsizzler.adosiz.flink.domain;
+package in.ankushs.sample.flink.domain;
 
-import com.adsizzler.adosiz.flink.jackson.JacksonLocalDateTimeDeserializer;
-import com.adsizzler.adosiz.flink.jackson.UUIDDeserializer;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import in.ankushs.sample.flink.jackson.JacksonLocalDateTimeDeserializer;
+import in.ankushs.sample.flink.jackson.UUIDDeserializer;
 import lombok.Getter;
 import lombok.Setter;
 

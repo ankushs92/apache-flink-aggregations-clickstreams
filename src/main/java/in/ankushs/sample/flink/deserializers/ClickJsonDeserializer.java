@@ -1,7 +1,7 @@
-package com.adsizzler.adosiz.flink.deserializers;
+package in.ankushs.sample.flink.deserializers;
 
-import com.adsizzler.adosiz.flink.domain.Click;
-import com.adsizzler.adosiz.flink.utils.Json;
+import in.ankushs.sample.flink.domain.Click;
+import in.ankushs.sample.flink.utils.Json;
 import lombok.extern.slf4j.Slf4j;
 import lombok.val;
 import org.apache.flink.api.common.typeinfo.TypeInformation;

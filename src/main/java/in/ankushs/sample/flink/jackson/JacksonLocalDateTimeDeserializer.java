@@ -1,9 +1,9 @@
-package com.adsizzler.adosiz.flink.jackson;
+package in.ankushs.sample.flink.jackson;
 
 import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.databind.DeserializationContext;
 import com.fasterxml.jackson.databind.JsonDeserializer;
-import in.ankushs.jvalet.utils.Strings;
+import in.ankushs.sample.flink.utils.Strings;
 import lombok.val;
 
 import java.io.IOException;

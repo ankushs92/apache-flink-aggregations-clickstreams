@@ -1,6 +1,6 @@
-package com.adsizzler.adosiz.flink.aggregations;
+package in.ankushs.sample.flink.aggregations;
 
-import com.adsizzler.adosiz.flink.domain.Click;
+import in.ankushs.sample.flink.domain.Click;
 import lombok.val;
 import org.apache.flink.api.java.tuple.Tuple3;
 import org.apache.flink.shaded.com.google.common.collect.Iterables;

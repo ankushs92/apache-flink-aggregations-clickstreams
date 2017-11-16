@@ -1,14 +1,14 @@
-package com.adsizzler.adosiz.flink.jobs;
+package in.ankushs.sample.flink;
 
 
-import com.adsizzler.adosiz.flink.aggregations.AggregatedClicksByMinute;
-import com.adsizzler.adosiz.flink.aggregations.ClickWindowAggregationFunction;
-import com.adsizzler.adosiz.flink.deserializers.ClickJsonDeserializer;
-import com.adsizzler.adosiz.flink.domain.Click;
-import com.adsizzler.adosiz.flink.keys.AggregatedClicksByMinuteKeySelector;
-import com.adsizzler.adosiz.flink.serializers.JsonSerializer;
+import in.ankushs.sample.flink.aggregations.AggregatedClicksByMinute;
+import in.ankushs.sample.flink.aggregations.ClickWindowAggregationFunction;
+import in.ankushs.sample.flink.constants.KafkaTopics;
+import in.ankushs.sample.flink.deserializers.ClickJsonDeserializer;
+import in.ankushs.sample.flink.domain.Click;
+import in.ankushs.sample.flink.keys.AggregatedClicksByMinuteKeySelector;
+import in.ankushs.sample.flink.serializers.JsonSerializer;
 import lombok.val;
-import org.apache.flink.api.java.tuple.Tuple;
 import org.apache.flink.streaming.api.environment.StreamExecutionEnvironment;
 import org.apache.flink.streaming.api.windowing.time.Time;
 import org.apache.flink.streaming.connectors.kafka.FlinkKafkaConsumer08;
@@ -19,8 +19,6 @@ import org.apache.kafka.common.serialization.StringDeserializer;
 
 import java.util.Properties;
 
-import static com.adsizzler.adosiz.flink.constants.KafkaTopics.AGGREGATED_CLICKS;
-import static com.adsizzler.adosiz.flink.constants.KafkaTopics.CLICKS;
 
 
 public class StreamingJob {
@@ -31,7 +29,7 @@ public class StreamingJob {
 		//Each click in the stream is a JSON string as bytes
 		val jsonDeserializer =  new ClickJsonDeserializer();
 
-		val kafkaConsumer = new FlinkKafkaConsumer08<Click>(CLICKS, jsonDeserializer, kafkaProperties());
+		val kafkaConsumer = new FlinkKafkaConsumer08<Click>(KafkaTopics.CLICKS, jsonDeserializer, kafkaProperties());
 
 		val clicksStream = env.addSource(kafkaConsumer);
 
@@ -51,7 +49,7 @@ public class StreamingJob {
 
 		//Serialize the result AggregatedClicksByMinute POJO to JSON
 		val jsonSerializer = new JsonSerializer();
-		val kafkaProducer = new FlinkKafkaProducer08<AggregatedClicksByMinute>(AGGREGATED_CLICKS, jsonSerializer, kafkaProperties());
+		val kafkaProducer = new FlinkKafkaProducer08<AggregatedClicksByMinute>(KafkaTopics.AGGREGATED_CLICKS, jsonSerializer, kafkaProperties());
 
 		//Sink
 		aggregatedClicksByMinuteStream.addSink(kafkaProducer);
