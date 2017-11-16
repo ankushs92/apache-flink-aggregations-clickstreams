@@ -15,8 +15,6 @@ import org.apache.flink.streaming.connectors.kafka.FlinkKafkaProducer08;
 import org.apache.kafka.clients.consumer.ConsumerConfig;
 import org.apache.kafka.common.serialization.ByteArrayDeserializer;
 import org.apache.kafka.common.serialization.StringDeserializer;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import java.util.Properties;
 
@@ -25,9 +23,6 @@ import static com.adsizzler.adosiz.flink.constants.KafkaTopics.CLICKS;
 
 
 public class StreamingJob {
-
-	private static final Logger logger = LoggerFactory.getLogger(StreamingJob.class);
-
 
 	public static void main(String[] args) throws Exception {
 		val env = StreamExecutionEnvironment.getExecutionEnvironment();
