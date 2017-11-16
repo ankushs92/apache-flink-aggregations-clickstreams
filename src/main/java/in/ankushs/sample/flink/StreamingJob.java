@@ -24,14 +24,16 @@ import java.util.Properties;
 public class StreamingJob {
 
 	public static void main(String[] args) throws Exception {
-		val env = StreamExecutionEnvironment.getExecutionEnvironment();
+		val flinkEnv = StreamExecutionEnvironment.getExecutionEnvironment();
 
 		//Each click in the stream is a JSON string as bytes
 		val jsonDeserializer =  new ClickJsonDeserializer();
 
+		//Kafka is the source of the stream
 		val kafkaConsumer = new FlinkKafkaConsumer08<Click>(KafkaTopics.CLICKS, jsonDeserializer, kafkaProperties());
 
-		val clicksStream = env.addSource(kafkaConsumer);
+		//Stream from Kafka
+		val clicksStream = flinkEnv.addSource(kafkaConsumer);
 
 		//Operations will be performed on this window, where the size of each window is 1 minute
 		//Multifurcate the clickstream by a Key, which is nothing but a tuple of fields. Flink provides Tuple's implementation upto 25 fields
@@ -55,7 +57,7 @@ public class StreamingJob {
 		aggregatedClicksByMinuteStream.addSink(kafkaProducer);
 
      	// execute program
-		env.execute("Ad tracking simple computations over a time window(like counting, summing etc)");
+		flinkEnv.execute("Counting clicks in a click stream over a time window");
 	}
 
 	private static Properties kafkaProperties(){
