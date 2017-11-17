@@ -13,7 +13,7 @@ import java.time.LocalDateTime;
 /**
  * Created by ankushsharma on 16/11/17.
  */
-public class ClickWindowAggregationFunction implements WindowFunction<Click, AggregatedClicksByMinute, Tuple3<Integer, Integer, LocalDateTime>, TimeWindow> {
+public class ClickWindowCountFunction implements WindowFunction<Click, AggregatedClicksByMinute, Tuple3<Integer, Integer, LocalDateTime>, TimeWindow> {
 
     @Override
     public void apply(

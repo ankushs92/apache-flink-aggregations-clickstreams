@@ -2,7 +2,7 @@ package in.ankushs.sample.flink;
 
 
 import in.ankushs.sample.flink.aggregations.AggregatedClicksByMinute;
-import in.ankushs.sample.flink.aggregations.ClickWindowAggregationFunction;
+import in.ankushs.sample.flink.aggregations.ClickWindowCountFunction;
 import in.ankushs.sample.flink.constants.KafkaTopics;
 import in.ankushs.sample.flink.deserializers.ClickJsonDeserializer;
 import in.ankushs.sample.flink.domain.Click;
@@ -46,8 +46,8 @@ public class StreamingJob {
 		// The aggregations bit
 		// Our aggregation function does a count on the click objects in the windowed stream
 		val aggregatedClicksByMinuteStream = clicksWindowedStream
-					.apply(new ClickWindowAggregationFunction())
-					.name("Aggregate clicks by minute");
+					.apply(new ClickWindowCountFunction())
+					.name("Count clicks in a Windowed stream");
 
 		//Serialize the result AggregatedClicksByMinute POJO to JSON
 		val jsonSerializer = new JsonSerializer();
