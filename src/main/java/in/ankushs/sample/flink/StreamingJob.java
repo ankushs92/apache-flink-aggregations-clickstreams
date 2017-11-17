@@ -56,7 +56,7 @@ public class StreamingJob {
 		//Sink
 		aggregatedClicksByMinuteStream.addSink(kafkaProducer);
 
-     	//execute program
+     		//execute program
 		flinkEnv.execute("Counting clicks in a click stream over a time window");
 	}
 
