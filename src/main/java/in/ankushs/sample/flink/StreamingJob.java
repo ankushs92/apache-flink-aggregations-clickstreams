@@ -19,8 +19,6 @@ import org.apache.kafka.common.serialization.StringDeserializer;
 
 import java.util.Properties;
 
-
-
 public class StreamingJob {
 
 	public static void main(String[] args) throws Exception {
@@ -62,10 +60,11 @@ public class StreamingJob {
 
 	private static Properties kafkaProperties(){
 		val properties = new Properties();
-		properties.put(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG,
-				StringDeserializer.class);
-		properties.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG,
-				ByteArrayDeserializer.class);
+		//Each key in Kafka is String
+		properties.put(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class);
+
+		//Each value is a byte[] (Each value is a JSON string encoded as bytes)
+		properties.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, ByteArrayDeserializer.class);
 		properties.setProperty("zookeeper.connect", "localhost:2181"); // Zookeeper default host:port
 		properties.setProperty("bootstrap.servers", "localhost:9092"); // Broker default host:port
 		properties.setProperty("group.id", "flink-streams-consumer");
