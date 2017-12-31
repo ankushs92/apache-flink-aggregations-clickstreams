@@ -1,7 +1,7 @@
 **What is this?** 
 
-This is a sample(but resembles actual production code) on how to do simple counting over streams over a time window using Apache Flink. 
-Go directly to `StreamingJob` to see what's happening. It shouldn't be hard to follow
+This is a sample(but resembles actual production code) on how to do simple counting over a time window using Apache Flink. 
+Go directly to `StreamingJob` to see what's happening. Detailed comments are there, shouldn't be hard to follow.
 
 Overview of what's happening underneath:
 
