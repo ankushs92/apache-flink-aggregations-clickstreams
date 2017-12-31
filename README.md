@@ -1,4 +1,4 @@
-**What is this? ** 
+**What is this?** 
 
 This is a sample(but resembles actual production code) on how to do simple counting over streams over a time window using Apache Flink. 
 
