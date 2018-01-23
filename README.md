@@ -3,6 +3,8 @@
 This is a sample(and a very small and partial part of actual production code) on how to do simple counting over a time window using Apache Flink. 
 Go directly to [StreamingJob](https://github.com/ankushs92/apache-flink-aggregations-clickstreams/blob/master/src/main/java/in/ankushs/sample/flink/StreamingJob.java) to see what's happening. Detailed comments are there, shouldn't be hard to follow.
 
+Oh, and I've used **Lombok** heavily, so make sure you've configured your IDE to work with Lombok.
+
 Overview of what's happening underneath:
 
 1. Data is streamed from Apache Kafka. Each click object in the stream is a `JSON` string. Deserialize JSON to POJO as shown in [this](https://github.com/ankushs92/apache-flink-aggregations-clickstreams/blob/master/src/main/java/in/ankushs/sample/flink/deserializers/ClickJsonDeserializer.java) class
